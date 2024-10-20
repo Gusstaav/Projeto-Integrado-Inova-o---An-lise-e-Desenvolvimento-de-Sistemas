@@ -98,12 +98,13 @@ class Controle{
         }
 
             // Função para atualizar um nome
-            updateProduto(codigo) {
+            updateProduto(codigo, nome, locacao, quantidade) {
                 if (storage.Produtos) {
                     const found = storage.Produtos.find(item => item.Codigo === codigo);
                     if (found) {
-                      found.Produto = "Kaka"; // Atualiza o nome
-                      
+                      found.Produto = nome; // Atualiza o nome
+                      found.Locacao = locacao;
+                      found.Quantidade = quantidade;
                     }else {
                     console.log('Nenhum nome encontrado para atualizar.');
                   }
@@ -133,8 +134,16 @@ rl.question("Por gentila digite a opção escolhida: ", (number) =>{
         
         if(number == 2){
             rl.question('Codigo do produto: ', (codigo_produto) => {
-                    const atualizar = new Controle
-                    atualizar.updateProduto(codigo_produto)
+                rl.question("Nome do produto: ", (nome) =>{
+                    rl.question("Locação: ", (locacao)=>{
+                        rl.question("Quantidade: ", (quantidade)=>{
+
+                            const atualizar = new Controle
+                            atualizar.updateProduto(codigo_produto, nome, locacao, quantidade)
+                        })
+                    })
+
+                })
               })
         }
     
