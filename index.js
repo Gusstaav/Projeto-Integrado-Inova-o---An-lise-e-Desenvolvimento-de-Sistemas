@@ -16,8 +16,42 @@ class Estoque{
             var Codigo= this.codigo_produto
             var Locacao = this.locacao
             var Quantidade = this.quantidade
-            const Relatorio = {Produto, Codigo, Locacao, Quantidade}
-             return {Relatorio}
+            var Relatorio = {}
+            
+                if(Produto){
+                    Relatorio = Produto
+                    
+                    if(Codigo){
+                        Relatorio = {Produto, Codigo}
+
+                        if(Locacao){
+                            Relatorio = {Produto, Codigo, Locacao}
+
+                            if(Quantidade){
+                                Relatorio = {Produto, Codigo, Locacao, Quantidade}
+                                return {Relatorio}
+                            }else{
+                                console.log("--> Por gentila preecha o campo da quantidade do produto <--")
+                            }
+
+                        }else{
+                            console.log("-->Por gentila preecha o campo da locação do produto <--")
+                        }
+                            
+                            
+                    }else{
+                        console.log("--> Por gentila preecha o campo do codigo do produto <--")
+                    }
+                        
+                    
+
+                    }else{
+                        console.log("--> Por gentila preecha o campo do nome do produto <--")
+                    }
+                    
+                    
+
+
         }
 }
 
