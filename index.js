@@ -5,26 +5,29 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 class Estoque{
-    constructor(nome_produto, codigo_produto, locacao) {
+    constructor(nome_produto, codigo_produto, locacao, quantidade_produto) {
         this.nome_produto = nome_produto;
         this.codigo_produto = codigo_produto;
         this.locacao = locacao;
-        this.quantidade = 1;
+        this.quantidade = quantidade_produto;
     }
         Relatorio(){
-            for(let i = 0; i < 0; i++){
-                this.quantidade++
-                console.log(this.quantidade)
-            }
+            var Produto = this.nome_produto
+            var Codigo= this.codigo_produto
+            var Locacao = this.locacao
+            var Quantidade = this.quantidade
+            const Relatorio = {Produto, Codigo, Locacao, Quantidade}
+             return {Relatorio}
         }
 }
 
  rl.question('Nome do produto: ', (nome_produto) => {
      rl.question('codigo do produto:', (codigo_produto) =>{
          rl.question('Locação:', (locacao) =>{             
-            const quadrado = new Estoque(nome_produto, codigo_produto, locacao);   
-            const fucao = new Estoque
-   console.log(fucao.Relatorio())
+           rl.question('Quantidade:', (quantidade_produto) =>{             
+                const quadrado = new Estoque(nome_produto, codigo_produto, locacao, quantidade_produto);   
+                    console.log(quadrado.Relatorio())
+ })
          })
      })
    })
